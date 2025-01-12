@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         Rubik: ["Rubik Vinyl"],
-        Jersey : ["Jersey 15"]
+        Bowlby : ["Bowlby One"]
       },
       
     },

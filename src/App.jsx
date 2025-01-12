@@ -1,5 +1,5 @@
 import Hero from "./components/Hero"
-import Navbar from "./components/Navbar"
+import ProductsPage from "./components/Products"
 
 
 
@@ -7,8 +7,11 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      <Hero/>
+      
+      
+      <Hero />
+      <ProductsPage/>
+        
     </>
   )
 }

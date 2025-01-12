@@ -1,20 +1,19 @@
 import React from 'react'
 
 const Button = ({icon,text,color,textcolor,height,width,px,py}) => {
-    console.log(height, width, px, py);
     return (
       <div >
          <button
       style={{
-        backgroundColor: color, // Dynamic background color
-        color: textcolor,       // Dynamic text color
-        height: `${height}px`,  // Dynamic height
-        width: `${width}px`,    // Dynamic width
-        padding: `${py}px ${px}px`, // Dynamic padding
+        backgroundColor: color, 
+        color: textcolor,        
+        height: `${height}px`,  
+        width: `${width}px`,    
+        padding: `${py}px ${px}px`, 
       }}
       className="border-2 clip-torn-paper border-black rounded-xl flex  items-center justify-center gap-4 hover:shadow-none shadow-gray-700 shadow-md   "
     >
-     <div>{icon}</div>  | <div className='font-mono font-bold text-lg'>{text}</div> 
+     <div>{icon}</div>  | <div className={`font-mono font-extrabold text-xl  `}>{text}</div> 
     </button>
       </div>
   )
