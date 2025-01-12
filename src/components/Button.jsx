@@ -12,7 +12,7 @@ const Button = ({icon,text,color,textcolor,height,width,px,py}) => {
         width: `${width}px`,    // Dynamic width
         padding: `${py}px ${px}px`, // Dynamic padding
       }}
-      className="border-2 border-black rounded-xl flex  items-center justify-center gap-4 hover:shadow-none shadow-slate-900 shadow-sm   "
+      className="border-2 clip-torn-paper border-black rounded-xl flex  items-center justify-center gap-4 hover:shadow-none shadow-gray-700 shadow-md   "
     >
      <div>{icon}</div>  | <div className='font-mono font-bold text-lg'>{text}</div> 
     </button>

@@ -7,9 +7,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Rubik: ["Rubik Vinyl"]
-      }
+        Rubik: ["Rubik Vinyl"],
+        Jersey : ["Jersey 15"]
+      },
+      
     },
   },
-  plugins: [],
-}
+  plugins: [
+    
+  ],
+};
