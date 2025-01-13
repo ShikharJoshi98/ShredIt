@@ -94,7 +94,7 @@ export function Skateboard(props) {
   );
   return (
     <group  dispose={null}>
-      <group name="Scene">
+      <group name="Scene" >
         <mesh
           name="GripTape"
           castShadow

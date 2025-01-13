@@ -5,9 +5,9 @@ import { Skateboard } from './Skateboard'
 
 const InteractiveSkateboard = () => {
   return (
-    <div className='absolute inset-0 z-10 flex items-center pl-20 '>
-      <Canvas className='min-h-[60rem] w-full'
-       camera={{position: [1.5,1,1.4],fov:55}}
+    <div className='absolute inset-0 z-10 flex items-center   '>
+      <Canvas className=''
+       camera={{position: [1.5,1,1.4],fov:50}}
       >
         <Suspense>
             <Scene/>
