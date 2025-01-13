@@ -1,11 +1,15 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 const ProductsPage = () => {
+  const [useAnimation, setAnimation] = useState(false);
   return (
       <div className="bg-[url('./public/bg-texture.webp')]   h-[820px]  w-full bg-cover  bg-no-repeat flex flex-col items-center justify-center gap-10">
       <div className='flex flex-col gap-8 items-center'>
-      <h1 className='text-7xl  font-bold tracking-wide  text-[#27272a] mt-12   font-Bowlby'>LATEST DROP</h1>
-        <p className='font-mono text-lg font-bold'>Grab our freshest designs before they sell out! </p>
+         <div>
+          <h1 className='text-7xl  font-bold tracking-wide  text-[#27272a] mt-12   font-Bowlby'>LATEST DROP</h1>
+        </div>
+        <div  >
+          <p className='font-mono text-lg font-bold'>Grab our freshest designs before they sell out! </p>
+          </div>
         </div>
         <div className="grid grid-cols-4 gap-36 mx-24 place-items-center h-screen">
   <div className='flex flex-col gap-5 items-center'>
