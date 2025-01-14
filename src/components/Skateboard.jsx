@@ -105,7 +105,7 @@ export function Skateboard({ decktexture, wheeltexture, bolt, truck, constantWhe
 
   return (
     <group dispose={null}>
-      <group name="Scene" position={[0.3,0,0]}>
+      <group name="Scene" position={[0.14,-0.07,-0.3]}>
         <mesh
           name="GripTape"
           castShadow
@@ -200,4 +200,3 @@ export function Skateboard({ decktexture, wheeltexture, bolt, truck, constantWhe
 }
 
 useGLTF.preload('/src/public/skateboard.gltf');
-

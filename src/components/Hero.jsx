@@ -11,7 +11,9 @@ const Hero = () => {
       <div className='h-[493px] ' >
         <div className='flex items-center justify-between'>
           <h1 className='text-7xl  font-bold tracking-wide  text-[#27272a] p-16 font-Bowlby'>ESCAPE THE <br /> CUL-DE-SAC</h1>
-           <InteractiveSkateboard wheeltexture="/src/public/skateboard/wheel-green.png" decktexture="/src/public/skateboard/yellow-and-black.png" boltcolor="green-yellow" truckColor="#555555" constantWheelSpin/>
+         
+            <InteractiveSkateboard wheeltexture="/src/public/skateboard/wheel-green.png" decktexture="/src/public/skateboard/yellow-and-black.png" boltcolor="green-yellow" truckColor="#555555" constantWheelSpin />
+            
         </div>
         <div className='flex items-center justify-around gap-36 mt-16 '>
           <h1 className='text-2xl font-mono font-extrabold tracking-wide  text-[#27272a] '>Not just a board, <em>your</em> board. Design a board <br /> that's as real as the places you take it.</h1>

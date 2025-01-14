@@ -119,9 +119,9 @@ const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) 
     )
   }
   return (
-    <div className='absolute inset-0 z-20 flex items-center pl-[24rem]   '>
+    <div className='absolute inset-0 z-20 flex items-center pl-[29rem]   '>
       <Canvas className=' w-full z-10'
-       camera={{position: [1.3,1,1.8],fov:45}}
+       camera={{position: [1.3,1.1,1.8],fov:45}}
       > 
         
         <Suspense >
