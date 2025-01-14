@@ -54,7 +54,7 @@ const ProductsPage = () => {
       alt="Yellow Black Skateboard"
           />
           <div className='flex flex-col items-center gap-2'>
-          <h1 className='text-lg font-Bowlby whitespace-nowrap '>YELLOW & BLACK</h1>
+          <h1 className='text-[16px] font-Bowlby  '>YELLOW & BLACK</h1>
             <p className='font-mono font-medium '>$59.99</p>
             </div>
   </div>

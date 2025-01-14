@@ -94,7 +94,7 @@ export function Skateboard(props) {
   );
   return (
     <group  dispose={null}>
-      <group name="Scene" position={[0.2,0,0]} >
+      <group name="Scene" position={[0.3,0.01,0]} >
         <mesh
           name="GripTape"
           castShadow

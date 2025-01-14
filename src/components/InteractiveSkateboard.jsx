@@ -7,7 +7,7 @@ const InteractiveSkateboard = () => {
   return (
     <div className='absolute inset-0 z-10 flex items-center   '>
       <Canvas className='pl-[37rem]'
-       camera={{position: [1.5,1,1.4],fov:55}}
+       camera={{position: [1.3,1,1.4],fov:56}}
       >
         <Suspense >
             <Scene/>
