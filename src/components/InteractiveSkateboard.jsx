@@ -6,10 +6,10 @@ import { Skateboard } from './Skateboard'
 const InteractiveSkateboard = () => {
   return (
     <div className='absolute inset-0 z-10 flex items-center   '>
-      <Canvas className=''
-       camera={{position: [1.5,1,1.4],fov:50}}
+      <Canvas className='pl-[37rem]'
+       camera={{position: [1.5,1,1.4],fov:55}}
       >
-        <Suspense>
+        <Suspense >
             <Scene/>
          </Suspense>
        </Canvas>
@@ -19,7 +19,7 @@ const InteractiveSkateboard = () => {
 
 function Scene() {
   return (
-    <group>
+    <group  >
       <OrbitControls/>
       <Environment files={"/src/public/hdr/warehouse-256.hdr"}/>      
       <Skateboard />
