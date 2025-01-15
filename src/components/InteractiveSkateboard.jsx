@@ -1,21 +1,65 @@
-import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import React, { Suspense, useRef } from 'react'
+import * as THREE from "three";
+import { ContactShadows, Environment, Html, OrbitControls } from '@react-three/drei'
+import { Canvas, useThree } from '@react-three/fiber'
+import React, { Suspense, useEffect, useRef } from 'react'
 import { Skateboard } from './Skateboard'
 import gsap from 'gsap'
+
+
+const INITIAL_CAMERA_POSITION = [2,1.1,2.695] ;
 
 const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) => {
   function Scene() {
     const containerRef = useRef(null);
-  const originRef = useRef(null);
+    const originRef = useRef(null);
+    
+    const { camera } = useThree();
+
+    useEffect(() => {
+      if (!containerRef.current || !originRef.current) return;
+  
+      gsap.to(containerRef.current.position, {
+        x: 0.2,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+  
+      gsap.to(originRef.current.rotation, {
+        y: Math.PI / 64,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    }, []);
+
+    useEffect(() => {
+      camera.lookAt(new THREE.Vector3(-0.2, 0.15, 0));
+  
+      setZoom();
+  
+      window.addEventListener("resize", setZoom);
+  
+      function setZoom() {
+        const scale = Math.max(Math.min(1000 / window.innerWidth, 2.2), 1);
+  
+        camera.position.x = INITIAL_CAMERA_POSITION[0] * scale;
+        camera.position.y = INITIAL_CAMERA_POSITION[1] * scale;
+        camera.position.z = INITIAL_CAMERA_POSITION[2] * scale;
+      }
+  
+      return () => window.removeEventListener("resize", setZoom);
+    }, [camera]);
 
     function onClick(event) {
       event.stopPropagation();
   
       const board = containerRef.current;
-      
+      const origin = originRef.current;
   
-      if (!board  ) return;
+      if (!board || !origin  ) return;
   
       const {name} = event.object;
   
@@ -54,6 +98,26 @@ const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) 
         )
         .to(board.rotation, { x: 0, duration: 0.12, ease: "none" });
     }
+
+    function frontside360(board, origin) {
+      jumpBoard(board);
+  
+      gsap
+        .timeline()
+        .to(board.rotation, { x: -0.6, duration: 0.26, ease: "none" })
+        .to(board.rotation, { x: 0.4, duration: 0.82, ease: "power2.in" })
+        .to(
+          origin.rotation,
+          {
+            y: `+=${Math.PI * 2}`,
+            duration: 0.77,
+            ease: "none",
+          },
+          0.3
+        )
+        .to(board.rotation, { x: 0, duration: 0.14, ease: "none" });
+    }
+
     function frontside360(board, origin) {
       jumpBoard(board);
   
@@ -92,7 +156,7 @@ const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) 
   
 
     return (
-      <group  >
+      < group >
         
         <Environment files={"/src/public/hdr/warehouse-256.hdr"} /> 
         <group ref={originRef}>
@@ -114,22 +178,26 @@ const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) 
             </group>
           </group>
         </group>
-        <ContactShadows opacity={0.38} position={[0,-0.08,0]}/>
-      </group>
+        <ContactShadows opacity={0.38} position={[0, -0.08, 0]} />
+        
+        
+
+        
+        </group>
     )
   }
   return (
-    <div className='absolute inset-0 z-20 flex items-center pl-[29rem]   '>
-      <Canvas className=' w-full z-10'
-       camera={{position: [1.3,1.1,1.8],fov:45}}
-      > 
-        
-        <Suspense >
-            <Scene/>
-          </Suspense>
-          
-       </Canvas>
+    
+    <div className="absolute inset-0 flex items-center pl-[22rem] ">
+      
+      <Canvas className="w-full min-h-[50rem]" camera={{ position: INITIAL_CAMERA_POSITION, fov: 40 }}>
+        <Suspense>
+          <Scene />
+        </Suspense>
+      </Canvas>
     </div>
+    
+    
   )
 }
 

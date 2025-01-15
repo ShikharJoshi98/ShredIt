@@ -105,7 +105,7 @@ export function Skateboard({ decktexture, wheeltexture, bolt, truck, constantWhe
 
   return (
     <group dispose={null}>
-      <group name="Scene" position={[0.14,-0.07,-0.3]}>
+      <group name="Scene" position={[0.16,-0.07,-0.3]}>
         <mesh
           name="GripTape"
           castShadow
