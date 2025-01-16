@@ -3,9 +3,13 @@ import Navbar from './Navbar'
 import Button from './Button'
 import Skateboard from '../public/Skateboard'
 import InteractiveSkateboard from './InteractiveSkateboard'
-
+import { useNavigate } from 'react-router-dom'
 const Hero = () => {
-  
+  const navigate = useNavigate();
+  function handleClick() {
+    
+    navigate('/customizer');
+  }
   return (
     <div className="bg-[#eac6dd] bg-[url('./public/bg-texture.webp')] bg-contain">
       <Navbar/>
@@ -18,9 +22,10 @@ const Hero = () => {
         </div>
         <div className='flex z-20 items-center justify-around gap-36 mt-20 '>
           <h1 className='text-2xl font-mono font-extrabold tracking-wide  text-[#27272a] '>Not just a board, <em>your</em> board. Design a board <br /> that's as real as the places you take it.</h1>
+          
           <Button
             icon={<Skateboard />}
-           
+            onClick = {handleClick}
         text="Build Your Board"
         color="#ff7347"
         textcolor="Black"
@@ -28,7 +33,8 @@ const Hero = () => {
         width={295}
         px={24}
         py={16}
-        />
+            />
+            
        </div>
       </div>
 
