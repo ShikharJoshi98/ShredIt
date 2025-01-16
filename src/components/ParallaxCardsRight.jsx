@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Button from './Button'
 import { FaCartShopping } from 'react-icons/fa6'
+import gsap from 'gsap';
 
 
 const ParallaxCardsRight = () => {
+  const ref = useRef(null);
+  useEffect(() => {
+    if(ref.current){
+    gsap.to(ref.current, {
+      y: 10,              
+      duration: 1,        
+      ease: "power1.inOut", 
+      yoyo: true,          
+      repeat: -1           
+    })};
+  }, []);
   return (
       <div className="bg-[#d9f154] sticky top-0 z-10 flex items-center px-10 justify-around bg-[url('./public/bg-texture.webp')] h-[593px]   bg-cover  bg-no-repeat">
           <div className='h-[500px]'>
-        <img className='w-[450px] h-[500px] object-contain relative z-20 top-[21px] ' src="/src/public/guy3.png" alt="" />
+        <img ref={ref} className='w-[450px] h-[500px] object-contain relative z-20 top-[21px] ' src="/src/public/guy3.png" alt="" />
         <img src="/src/public/skater-background.png" className='w-96  relative z-10 top-[-455px] ' alt="" />
       </div>
       <div className='flex flex-col  gap-12'>

@@ -1,6 +1,20 @@
-import React from 'react'
+import gsap from 'gsap';
+import React, { useEffect, useRef } from 'react'
 
 const ParallaxCardsLeft = () => {
+
+  const ref = useRef(null);
+  useEffect(() => {
+    if(ref.current){
+    gsap.to(ref.current, {
+      y: 10,              
+      duration: 1,        
+      ease: "power1.inOut", 
+      yoyo: true,          
+      repeat: -1           
+    })};
+  }, []);
+
   return (
    
     <div className="bg-[#4876ff] sticky top-0 flex items-center px-10 justify-around bg-[url('./public/bg-texture.webp')] h-[593px]   bg-cover  bg-no-repeat">
@@ -11,8 +25,12 @@ const ParallaxCardsLeft = () => {
         </div>
         </div>
       <div className='h-[500px]'>
-        <img className='w-80 h-[500px] object-contain relative z-20 top-[21px] ' src="/src/public/guy1.png" alt="" />
-        <img src="/src/public/skater-background.png" className='w-96  relative z-10 top-[-455px] ' alt="" />
+      
+        <img ref={ref} className='w-80 h-[500px] object-contain relative z-20 top-[21px] ' src="/src/public/guy1.png" alt="" />
+        
+          <img src="/src/public/skater-background.png" className='w-96  relative z-10 top-[-455px] ' alt="" />
+          
+          
       </div>
       </div>
       

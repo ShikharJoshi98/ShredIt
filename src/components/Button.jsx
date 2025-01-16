@@ -13,7 +13,7 @@ const Button = ({icon,onClick,text,color,textcolor,height,width,px,py}) => {
         padding: `${py}px ${px}px`, 
           }}
           
-      className="border-2 clip-torn-paper cursor-pointer border-black rounded-xl flex  items-center justify-center gap-4 hover:shadow-none shadow-gray-700 shadow-md   "
+      className="border-2  cursor-pointer border-black rounded-xl flex  items-center justify-center gap-4 hover:shadow-none shadow-gray-700 shadow-md   "
     >
      <div>{icon}</div>  | <div className={`font-mono font-extrabold text-xl  `}>{text}</div> 
     </button>
