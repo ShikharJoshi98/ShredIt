@@ -17,7 +17,7 @@ const Hero = () => {
         <div className='flex items-center justify-between'>
           <h1 className='text-7xl  font-bold tracking-wide  text-[#27272a] p-16 font-Bowlby'>ESCAPE THE <br /> CUL-DE-SAC</h1>
          
-            <InteractiveSkateboard wheeltexture="/src/public/skateboard/wheel-green.png" decktexture="/src/public/skateboard/yellow-and-black.png" boltcolor="green-yellow" truckColor="#555555" constantWheelSpin />
+            <InteractiveSkateboard wheeltexture="/src/public/skateboard/wheel-green.png" decktexture="/src/public/skateboard/yellow-and-black.png" boltcolor="green-yellow" truckColor="#555555" constantWheelSpin pose="upright" position={[0.16,-0.07,-0.3]} />
             
         </div>
         <div className='flex z-20 items-center justify-around gap-36 mt-20 '>

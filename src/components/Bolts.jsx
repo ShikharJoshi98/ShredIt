@@ -1,7 +1,7 @@
 import { color } from 'framer-motion';
 import React, { useState } from 'react'
 
-const Bolts = () => {
+const Bolts = ({sampleBolt,setSampleBolt}) => {
    const [Bolt, setBolt] = useState("Black");
       const images = [
         { name: "black",color:"black" },
@@ -17,8 +17,8 @@ const Bolts = () => {
           { name: "pink",color:"pink"}
         ];
         
-      function handleClick(name) {
-            
+      function handleClick(name,color) {
+        setSampleBolt(color);
             setBolt(name);
         }
     
@@ -34,10 +34,10 @@ const Bolts = () => {
               <button
                     key={idx}
                     style={{backgroundColor:`${image.color}`}}
-                    className={`w-12 h-12 rounded-full overflow-hidden border-2 transition duration-300 ${
+                    className={`w-10 h-10 rounded-full overflow-hidden border-2 transition duration-300 ${
                         Bolt === image.name ? "border-white" : "border-slate-500"
                       }`}   
-                    onClick={()=>(handleClick(image.name))}
+                    onClick={()=>(handleClick(image.name,image.color))}
               >
                
               </button>

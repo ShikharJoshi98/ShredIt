@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Wheels = () => {
+const Wheels = ({sampleWheel,setSampleWheel}) => {
   const [Wheel, setWheel] = useState("Black");
     const images = [
       { name: "Black", url: "/src/assets/Wheel/wheel-black.png" },
@@ -14,9 +14,10 @@ const Wheels = () => {
       { name: "Yellow", url: "/src/assets/Wheel/wheel-yellow.png" }
       ];
       
-    function handleClick(name) {
+    function handleClick(name,url) {
           
-          setWheel(name);
+      setWheel(name);
+      setSampleWheel(url);
       }
   
     return (
@@ -31,10 +32,10 @@ const Wheels = () => {
             <button
               key={idx}
               
-              className={`w-12 h-12  rounded-full overflow-hidden border-2 transition duration-300 ${
+              className={`w-10 h-10  rounded-full overflow-hidden border-2 transition duration-300 ${
                 Wheel === image.name ? "border-white" : "border-slate-500"
               }`}    
-                  onClick={()=>(handleClick(image.name))}
+                  onClick={()=>(handleClick(image.name,image.url))}
             >
               <img
                 src={image.url}

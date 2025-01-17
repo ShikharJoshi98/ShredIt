@@ -1,7 +1,7 @@
 import { color } from 'framer-motion';
 import React, { useState } from 'react'
 
-const Trucks = () => {
+const Trucks = ({sampleTruck,setSampleTruck}) => {
    const [Truck, setTruck] = useState("Black");
       const images = [
         { name: "black",color:"black" },
@@ -17,9 +17,10 @@ const Trucks = () => {
           { name: "pink",color:"pink"}
         ];
         
-      function handleClick(name) {
+      function handleClick(name,color) {
             
-            setTruck(name);
+        setTruck(name);
+        setSampleTruck(color);
         }
     
       return (
@@ -34,10 +35,10 @@ const Trucks = () => {
               <button
                     key={idx}
                     style={{backgroundColor:`${image.color}`}}
-                    className={`w-12 h-12 rounded-full overflow-hidden border-2 transition duration-300 ${
+                    className={`w-10 h-10 rounded-full overflow-hidden border-2 transition duration-300 ${
                         Truck === image.name ? "border-white" : "border-slate-500"
                       }`}   
-                    onClick={()=>(handleClick(image.name))}
+                    onClick={()=>(handleClick(image.name,image.color))}
               >
                
               </button>

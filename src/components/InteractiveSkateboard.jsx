@@ -8,7 +8,7 @@ import gsap from 'gsap'
 
 const INITIAL_CAMERA_POSITION = [2,1.1,2.695] ;
 
-const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) => {
+const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor,pose,position}) => {
   function Scene() {
     const containerRef = useRef(null);
     const originRef = useRef(null);
@@ -162,7 +162,7 @@ const InteractiveSkateboard = ({decktexture,wheeltexture,boltcolor,truckColor}) 
         <group ref={originRef}>
         <group ref={containerRef} position={[-0.25, 0, -0.635]}>
             <group position={[0, -0.086, 0.635]}>
-            <Skateboard decktexture={decktexture} wheeltexture={wheeltexture} bolt={boltcolor} truck={truckColor} constantWheelSpin  />
+            <Skateboard decktexture={decktexture} wheeltexture={wheeltexture} bolt={boltcolor} truck={truckColor} constantWheelSpin pose={pose} position={position}  />
             <mesh position={[0, 0.27, 0.9]} name="front" onClick={onClick}>
               <boxGeometry args={[0.6, 0.2, 0.58]} />
               <meshStandardMaterial visible={false} />
