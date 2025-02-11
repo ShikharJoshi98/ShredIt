@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react'
 import Button from './Button'
 import { FaCartShopping } from 'react-icons/fa6'
 import gsap from 'gsap';
+import { useNavigate } from 'react-router-dom';
 
 
 const ParallaxCardsRight = () => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   useEffect(() => {
     if(ref.current){
     gsap.to(ref.current, {
@@ -16,6 +18,10 @@ const ParallaxCardsRight = () => {
       repeat: -1           
     })};
   }, []);
+  function handleClick() {
+    
+    navigate('/customizer');
+  }
   return (
       <div className="bg-[#d9f154] sticky top-0 z-10 flex items-center px-10 justify-around bg-[url('./public/bg-texture.webp')] h-[593px]   bg-cover  bg-no-repeat">
           <div className='h-[500px]'>
@@ -29,12 +35,13 @@ const ParallaxCardsRight = () => {
               </div>
               <div>
               <Button
-        icon={<FaCartShopping />}
-        text="Shop Boards"
+            icon={<FaCartShopping />}
+            onClick = {handleClick}
+        text="Customize Boards"
         color="#ff7347"
         textcolor="black"
         height={50}
-        width={258}
+        width={318}
         px={20}
         py={10}
         />

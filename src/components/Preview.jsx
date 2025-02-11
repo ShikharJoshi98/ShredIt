@@ -1,9 +1,8 @@
 import { CameraControls, Environment, Preload, useTexture } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import React, { Suspense, useContext, useRef } from 'react'
+import React, { Suspense, useContext, useEffect, useRef } from 'react'
 import { Skateboard } from './Skateboard'
 import * as THREE from 'three';
-import { deckContext } from '../context/context';
 
 const Preview = ({sampleDeck,sampleWheel,sampleTruck,sampleBolt}) => {
 
@@ -34,7 +33,41 @@ const Preview = ({sampleDeck,sampleWheel,sampleTruck,sampleBolt}) => {
             </mesh>
           );
         
-    }
+  }
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(0, 0.3, 0),
+      new THREE.Vector3(1.5, 0.8, 0)
+    );
+  }, [sampleDeck]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.12, 0.29, 0.57),
+      new THREE.Vector3(0.1, 0.25, 0.9)
+    );
+  }, [sampleTruck]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.08, 0.54, 0.64),
+      new THREE.Vector3(0.09, 1, 0.9)
+    );
+  }, [sampleWheel]);
+
+  useEffect(() => {
+    setCameraControls(
+      new THREE.Vector3(-0.25, 0.3, 0.62),
+      new THREE.Vector3(-0.5, 0.35, 0.8)
+    );
+  }, [sampleBolt]);
+  function setCameraControls(target, pos) {
+    if (!cameraControls.current) return;
+
+    cameraControls.current.setTarget(target.x, target.y, target.z, true);
+    cameraControls.current.setPosition(pos.x, pos.y, pos.z, true);
+  }
+
     function onCameraControlStart() {
         if (
           !cameraControls.current ||
@@ -48,7 +81,6 @@ const Preview = ({sampleDeck,sampleWheel,sampleTruck,sampleBolt}) => {
     const cameraControls = useRef(null);
   const floorRef = useRef(null);
   
-    let  boltcolor = "green-yellow", truckColor = "#555555", constantWheelSpin;
   return (
       <Canvas camera={{ position: [2.5, 1, 0], fov: 65 }} shadows>
           <Suspense fallback={null}>
