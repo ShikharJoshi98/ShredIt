@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../public/logo'
+import Logo from '../public/Logo'
 
 const Artist = () => {
   return (
