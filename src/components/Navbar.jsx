@@ -1,9 +1,6 @@
 import React from 'react'
-import Button from './Button'
-import { FiLogIn } from "react-icons/fi";
-import Logo from '../public/logo';
+import Logo from '../public/Logo';
 import { useNavigate } from 'react-router-dom';
-import Skateboard from '../public/Skateboard'
 
 const Navbar = () => {
   const navigate = useNavigate();
